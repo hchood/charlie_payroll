@@ -3,8 +3,8 @@ require_relative 'employee'
 class QuotaSalesPerson < Employee
   attr_reader :sales
 
-  def initialize(name, base_salary, quota_bonus, quota)
-    super(name, base_salary)
+  def initialize(first_name, last_name, title, base_salary, quota_bonus, quota)
+    super(first_name, last_name, title, base_salary)
     @quota_bonus = quota_bonus.to_i
     @quota = quota.to_i
     @sales = 0

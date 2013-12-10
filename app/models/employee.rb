@@ -1,13 +1,14 @@
 class Employee
-  attr_reader :name, :last_name, :base_salary
+  attr_reader :first_name, :last_name, :title, :base_salary
 
   @@employees = []
 
   TAX_RATE = 0.30
 
-  def initialize(name, base_salary)
-    @name = name
-    @last_name = name.split(/ /).last
+  def initialize(first_name, last_name, title, base_salary)
+    @first_name = first_name
+    @last_name = last_name
+    @title = title
     @base_salary = base_salary.to_f
   end
 
@@ -18,17 +19,18 @@ class Employee
   def self.parse_employees(filename)
     CSV.foreach(filename, headers: true) do |row|
       if row["type"] == "1"
-        @@employees << Employee.new(row["name"], row["base_salary"])
+        @@employees << Employee.new(row["first_name"], row["last_name"], row["title"], row["base_salary"])
       elsif row["type"] == "2"
-        @@employees << CommissionSalesPerson.new(row["name"], row["base_salary"], row["commission"])
+        @@employees << CommissionSalesPerson.new(row["first_name"], row["last_name"], row["title"], row["base_salary"], row["commission"])
       elsif row["type"] == "3"
-        @@employees << QuotaSalesPerson.new(row["name"], row["base_salary"], row["quota_bonus"], row["quota"])
+        @@employees << QuotaSalesPerson.new(row["first_name"], row["last_name"], row["title"], row["base_salary"], row["quota_bonus"], row["quota"])
       elsif row["type"] == "4"
-        @@employees << Owner.new(row["name"], row["base_salary"], Company.new(row["company_quota"]))
+        @@employees << Owner.new(row["first_name"], row["last_name"], row["title"], row["base_salary"], Company.new(row["company_quota"]))
       else
         puts "Error"
       end
     end
+    @@employees
   end
 
   def gross_monthly_salary

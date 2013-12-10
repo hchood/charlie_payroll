@@ -1,1 +1,9 @@
-<p>List your employees here</p>
+<p>List your employees here
+  <ul>
+    <% @employees.each do |employee| %>
+    <li>
+      <%= "Name: #{employee.first_name} #{employee.last_name}\nTitle: #{employee.title}\nIncome: #{employee.gross_monthly_salary} #{employee.net_pay}\n\n" %>
+      <% end %>
+    </li>
+  </ul>
+</p>

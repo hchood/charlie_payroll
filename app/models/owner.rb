@@ -3,8 +3,8 @@ require_relative 'employee'
 class Owner < Employee
   attr_reader :company
 
-  def initialize(name, base_salary, company)
-    super(name, base_salary)
+  def initialize(first_name, last_name, title, base_salary, company)
+    super(first_name, last_name, title, base_salary)
     @company = company
   end
 
