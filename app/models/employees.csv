@@ -1,9 +1,0 @@
-type,name,base_salary,commission,quota_bonus,quota,company_quota
-1,Johnny Smith,80000
-1,Jimmy McMahon,85000
-1,Edna Krabappel,87000
-2,Bob Lob,50000,0.005
-2,Ricky Bobby,40000,0.015
-3,Willie Groundskeeper,75000,,5000,60000
-3,Clancy Wiggum,80000,,10000,80000
-4,Charles Burns,500000,,,,250000
