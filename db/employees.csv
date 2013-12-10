@@ -1,0 +1,9 @@
+type,first_name,last_name,title,base_salary,commission,quota_bonus,quota,company_quota
+1,Johnny,Smith,developer,80000
+1,Jimmy,McMahon,developer,85000
+1,Edna,Krabappel,designer,87000,
+2,Bob,Lob,50000,salesperson,0.005
+2,Ricky,Bobby,salesperson,40000,0.015
+3,Willie,Groundskeeper,salesperson,75000,,5000,60000
+3,Clancy,Wiggum,salesperson,80000,,10000,80000
+4,Charles,Burns,owner,500000,,,,250000
