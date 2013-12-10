@@ -1,5 +1,3 @@
-require 'csv'
-
 class Sale
   attr_reader :last_name, :amount
 
