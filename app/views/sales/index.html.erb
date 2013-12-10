@@ -11,20 +11,15 @@
 
   <% @sales.each do |sale| %>
     <% seller = sale.sales_person %>
-    <% if seller.last_name == 'Bobby'%>
-      <tr class = 'highlight'>
-    <% else %>
-      <tr>
-    <% end %>
-      <td><%= "$#{sprintf('%.2f', sale.amount)}" %></td>
-      <td><%= seller.first_name %></td>
-      <td><%= seller.last_name %></td>
-      <% if seller.is_a?(CommissionSalesPerson) %>
-        <% sale_commission = sale.amount * seller.commission %>
-        <td><%= 'Y' %></td>
-        <td><%= "$#{sprintf('%.2f', sale_commission)}" %></td>
-      <% end %>
-    </tr>
-
+      <tr class = "<%= seller.last_name %>" >
+        <td><%= "$#{sprintf('%.2f', sale.amount)}" %></td>
+        <td><%= seller.first_name %></td>
+        <td><%= seller.last_name %></td>
+        <% if seller.is_a?(CommissionSalesPerson) %>
+          <% sale_commission = sale.amount * seller.commission %>
+          <td><%= 'Y' %></td>
+          <td><%= "$#{sprintf('%.2f', sale_commission)}" %></td>
+        <% end %>
+      </tr>
   <% end %>
 </table>

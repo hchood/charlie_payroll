@@ -12,8 +12,8 @@
 
   <% @employees.each do |employee| %>
     <tr>
-      <td><%= employee.first_name %></td>
-      <td><%= employee.last_name %></td>
+      <td class="<%= employee.title %>"><%= employee.first_name %></td>
+      <td class="<%= employee.title %>"><%= employee.last_name %></td>
       <td><%= employee.title %></td>
       <td><%= "$#{sprintf('%.2f', employee.gross_monthly_salary)}" %></td>
       <td><%= "$#{sprintf('%.2f', employee.net_pay)}" %></td>
