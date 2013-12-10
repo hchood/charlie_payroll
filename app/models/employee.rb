@@ -1,8 +1,6 @@
 class Employee
   attr_reader :first_name, :last_name, :title, :base_salary
 
-  @@employees = []
-
   TAX_RATE = 0.30
 
   def initialize(first_name, last_name, title, base_salary)
@@ -17,6 +15,7 @@ class Employee
   end
 
   def self.parse_employees(filename)
+    @@employees = []
     CSV.foreach(filename, headers: true) do |row|
       if row["type"] == "1"
         @@employees << Employee.new(row["first_name"], row["last_name"], row["title"], row["base_salary"])

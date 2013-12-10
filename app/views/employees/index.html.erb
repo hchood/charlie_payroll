@@ -1,9 +1,24 @@
-<p>List your employees here
-  <ul>
-    <% @employees.each do |employee| %>
-    <li>
-      <%= "Name: #{employee.first_name} #{employee.last_name}\nTitle: #{employee.title}\nIncome: #{employee.gross_monthly_salary} #{employee.net_pay}\n\n" %>
-      <% end %>
-    </li>
-  </ul>
-</p>
+<p>List your employees here</p>
+
+  <table border = '1'>
+
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Title</th>
+    <th>Gross salary</th>
+    <th>Net pay</th>
+  </tr>
+
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%= employee.first_name %></td>
+      <td><%= employee.last_name %></td>
+      <td><%= employee.title %></td>
+      <td><%= "$#{sprintf('%.2f', employee.gross_monthly_salary)}" %></td>
+      <td><%= "$#{sprintf('%.2f', employee.net_pay)}" %></td>
+    </tr>
+  <% end %>
+
+  </table>
+
