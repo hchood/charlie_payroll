@@ -1,3 +1,13 @@
 .highlight {
   background-color: yellow;
 }
+
+.owner {
+  background-color: yellow;
+  font-size: 125%;
+}
+
+.salesperson {
+  color: darkgreen;
+  font-weight: bold;
+}
