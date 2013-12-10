@@ -1,1 +1,5 @@
-<p>List your sales here</p>
+<p>List your sales here
+<% @sales.each do |sale| %>
+  <%= "#{sale.last_name}, #{sale.amount}" %>
+<% end %>
+</p>
