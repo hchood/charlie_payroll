@@ -1,6 +1,6 @@
 <p class="beautiful">List your sales here </p>
 
-<table>
+<table border = '1'>
 <tr>
   <th>Amount</th>
   <th>First name</th>
@@ -9,26 +9,18 @@
   <th>Commission</th>
 </tr>
 
-<% @sales.each do |sale| %>
-  <%   seller = sale.sales_person %>
-  <tr>
-    <td><%= "$#{sprintf('%.2f', sale.amount)}" %></td>
-    <td><%= seller.first_name %></td>
-    <td><%= seller.last_name %></td>
-  </tr>
-<% end %>
-
-
+  <% @sales.each do |sale| %>
+    <% seller = sale.sales_person %>
+    <tr>
+      <td><%= "$#{sprintf('%.2f', sale.amount)}" %></td>
+      <td><%= seller.first_name %></td>
+      <td><%= seller.last_name %></td>
+      <% if seller.is_a?(CommissionSalesPerson) %>
+        <% sale_commission = sale.amount * seller.commission %>
+        <td><%= 'Y' %></td>
+        <td><%= "$#{sprintf('%.2f', sale_commission)}" %></td>
+      <% end %>
+    </tr>
+  <% end %>
 
 </table>
-
-<% @sales.each do |sale| %>
-  <%   seller = sale.sales_person %>
-  <%=  string = "$#{sale.amount}, #{seller.first_name} #{seller.last_name}" %>
-    <% if seller.is_a?(CommissionSalesPerson) %>
-      <%= string += " (Commission Sales Person), Commision: #{sale.amount * seller.commission}" %>
-    <% end %>
-
-
-
-<script src=""></script>

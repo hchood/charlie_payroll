@@ -13,7 +13,7 @@ class CommissionSalesPerson < Employee
     @sales += amount
   end
 
-  def commission
+  def total_commission
     @sales * @commission
   end
 
